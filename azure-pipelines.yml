@@ -3,15 +3,12 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-pr:
-    branches:
+trigger:
+  batch: false  
+  branches:
       include:
-      - features/gpay
-      exclude:
       - main 
-    paths:
-      exclude:
-      - README.md
+    
 
 pool:
   vmImage: ubuntu-latest
@@ -29,7 +26,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    repository: anoogan1/coit-frontend
+    repository: debjym/retailproject_frontend
     command: 'buildAndPush'
     Dockerfile: './Dockerfile'
     tags: latest
