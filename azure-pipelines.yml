@@ -29,5 +29,5 @@ steps:
     repository: debjym/retailproject_frontend
     command: 'buildAndPush'
     Dockerfile: './Dockerfile'
-    tags: '$(Build.BuildId)'
+    tags: latest
     containerRegistry: Docker-hub
